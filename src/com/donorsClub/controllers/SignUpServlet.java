@@ -84,7 +84,7 @@ public class SignUpServlet extends HttpServlet {
         session.setAttribute("user", newUser);
 
         if (newUser != null) {
-          response.sendRedirect("./");
+          response.sendRedirect("./home");
         }
       } else
           request.getRequestDispatcher("/WEB-INF/views/signup.jsp").forward(request, response);

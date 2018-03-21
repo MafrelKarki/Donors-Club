@@ -30,7 +30,7 @@ public class LogOutServlet extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 	  
 	    request.getSession().invalidate();
-	    response.sendRedirect("./");
+	    response.sendRedirect("./home");
 	}
 
 	/**

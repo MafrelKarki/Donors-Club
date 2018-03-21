@@ -15,7 +15,7 @@ import com.donorsClub.services.SearchPostService;
 /**
  * Servlet implementation class SearchPostServlet
  */
-@WebServlet(urlPatterns= {"/","/home","/search"})
+@WebServlet(urlPatterns= {"/home","/search"})
 public class SearchPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

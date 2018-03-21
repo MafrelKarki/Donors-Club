@@ -3,6 +3,7 @@ package com.donorsClub.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import com.donorsClub.daos.UserDao;
 import com.donorsClub.models.User;
+import com.donorsClub.services.SignUpService;
 
 
 
@@ -39,20 +41,43 @@ public class ProfileServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	   User user = (User)request.getSession().getAttribute("user");
-	   user.setFname(request.getParameter("fname"));
-	   user.setLname(request.getParameter("lname"));
-	   user.setEmail(request.getParameter("email"));
-	   user.setAddress(request.getParameter("address"));
-	   user.setPhoneNumber(request.getParameter("phoneNumber"));
-	   user.setUpdatedAt(new Date());
+	  
+	  String fname = request.getParameter("fname");
+	  String lname = request.getParameter("lname");
+	  String email = request.getParameter("email");
+	  String address = request.getParameter("address");
+	  String phoneNumber = request.getParameter("phoneNumber");
+//	  String 
+	  
+	  
 	   
-	   UserDao uDao = new UserDao();
-	   boolean updateStatus = uDao.update(user);
+	   
+	   SignUpService signUpService = new SignUpService();
+	   List<String> errors = signUpService.validateSignUpForm(fname, lname, address, phoneNumber, email, "MyDummyPassword", "MyDummyPassword");
 	   
 	   response.setContentType("application/json");
 	   JSONObject res = new JSONObject();
-	   res.put("response", updateStatus);
+	   
+	   
+	   if(errors.isEmpty()){
+	       User user = (User)request.getSession().getAttribute("user");
+	       user.setFname(fname);
+	       user.setLname(lname);
+	       user.setEmail(email);
+	       user.setAddress(address);
+	       user.setPhoneNumber(phoneNumber);
+	       user.setUpdatedAt(new Date());
+	       
+//	       System.out.println(errors);
+//	       System.out.println(errors.size());
+    	   UserDao uDao = new UserDao();
+    	   boolean updateStatus = uDao.update(user);
+//    	   user = (User)new UserDao().findById(user.getUserId());
+    	   res.put("response", updateStatus);
+	   }else{
+	       res.put("response", errors);
+	   }
+	   
 	   PrintWriter writer = response.getWriter();
 	   writer.println(res);
 	  

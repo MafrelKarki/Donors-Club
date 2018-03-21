@@ -1,0 +1,21 @@
+<!-- Mafrel's code 3/19/2018 -->
+
+<dc:forEach var="v" begin="1" end="3">
+	<div class="container" id="tourpackages-carousel">
+		<div class="row">
+
+			<div class="col-xs-18 col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<img src="http://placehold.it/500x300" alt="">
+					<div class="caption">
+						<h4>Item with most Interest #${v}</h4>
+						<p>Item Name goes here</p>
+						<p>
+							<a href="#" class="btn btn-info btn-xs" role="button">View</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</dc:forEach>

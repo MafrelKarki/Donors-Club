@@ -1,14 +1,15 @@
+//Mafrel's code 3/20/2019
+
 $(document).ready(function(){
 	
 	$('#updateUserProfile-btn').click(function(){
-		
+		$('#error_message').text("");
 		var fname = $("input[name='first_name']").val();
 		var lname = $("input[name='last_name']").val();
 		var address = $("input[name='address']").val();
 		var email = $("input[name='email']").val();
 		var contact_no = $("input[name='contact_no']").val();
 		
-//		alert("here");
 		$.ajax({
 			"type" : "post",
 			"url": "./ProfileServlet.do",
@@ -21,11 +22,24 @@ $(document).ready(function(){
 			},
 			
 			"success": function(response){
-				alert(fname+" "+lname+" "+address+" "+contact_no+" "+email);
+				if(response.response!=true){
+					$('#error_message').show();
+					$.each(response.response, function(index, element){
+						$('#error_message').append(element);
+						
+						$("<br>").appendTo('#error_message');
+//						alert(element);
+					})
+//					$('#error_message').append(response.response[0]);
+				}
+					
+				else{
+					$('#error_message').hide();
+					window.location.reload();
+				}
 			},
 			
 			"error": function(){
-//				console.log("Error Occured");
 			}
 		});
 	});

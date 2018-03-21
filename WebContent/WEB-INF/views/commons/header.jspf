@@ -63,8 +63,8 @@
 		          </li>
 			    </c:when>    
 			    <c:otherwise>
-			    	<li><a href="./login">Login</a></li>
-			       	<li><a href="./signup">Sign Up</a></li>
+			    	<li><a href="${pageContext.request.contextPath}/login">Login</a></li>
+			       	<li><a href="${pageContext.request.contextPath}/signup">Sign Up</a></li>
 			    </c:otherwise>
 			</c:choose>
 			</ul>

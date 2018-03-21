@@ -20,4 +20,12 @@ public class SearchPostService {
 		items = itmDoa.searchPost(keyWord);
 		return items;
 	}
+	
+	public List<Item> getMostInterestedItem(int limit){
+		List<Item> items = new ArrayList<>();
+		ItemDao itmDoa = new ItemDao();
+		items = itmDoa.getMostInterestedItems(limit);
+		return items;
+	}
+	
 }

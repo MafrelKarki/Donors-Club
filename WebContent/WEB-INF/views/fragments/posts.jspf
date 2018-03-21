@@ -1,64 +1,61 @@
 <!-- Mafrel's code 3/19/2018 -->
 <script src="resources/js/user_profile.js"></script>
+
 <dc:forEach var="item" items="${items}" varStatus="loop">
-	<div class="carousel-wrapper">
-
-		<a href="http://google.com">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#myCarouse${item.itemId}" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarouse${item.itemId}" data-slide-to="1"></li>
-					<li data-target="#myCarouse${item.itemId}" data-slide-to="2"></li>
-				</ol>
-				<div class="carousel-inner">
-					<%-- <dc:forEach var="pict" items="${item.pictureList}" varStatus="loop"> --%>
-					<%-- replace 3 div with class item with one dynamic div  --%>
-						<div class="item active">
-							<img src="resources/images/slide1.jpg" alt="slide 1"
-								style="width: 100%;">
-						</div>
-						<div class="item">
-							<img src="resources/images/slide3.jpg" alt="slide 1"
-								style="width: 100%;">
-						</div>
-						<div class="item">
-							<img src="resources/images/slide2.jpg" alt="slide 1"
-								style="width: 100%;">
-						</div>
-					<%-- </dc:forEach> --%>
-				</div>
-
-				<!-- Left and right controls -->
-				<a class="left carousel-control" href="#myCarouse${item.itemId}"
-					data-slide="prev"> <span
-					class="glyphicon glyphicon-chevron-left"></span> <span
-					class="sr-only">Previous</span>
-				</a> <a class="right carousel-control" href="#myCarouse${item.itemId }"
-					data-slide="next"> <span
-					class="glyphicon glyphicon-chevron-right"></span> <span
-					class="sr-only">Next</span>
-				</a>
-			</div>
-		</a>
+	<div class="card carousel-wrapper">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<a href="#" class="btn btn-info btn-lg" style="width: 100%"> <span
-					class="glyphicon glyphicon-star"></span> Show Interest
-
-				</a> <a
-					href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.example.com&p[images][0]=&p[title]=Title%20Goes%20Here&p[summary]=Description%20goes%20here!"
-					target="_blank"
-					onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false"><button
-						style="width: 100%; margin-top: 10px;" type="button"
-						class="btn btn-facebook btn-lg">
-						<i class="fa fa-facebook fa-2"></i> Share on Facebook
-					</button></a>
-			</div>
-			<div class="panel-body">
-				<div><strong>Product Name: </strong>${item.itemName }</div>
-				<div><strong>ProductDesctiption: </strong></div>
-				<strong>${item.createdAt}</strong>
-				<blockquote>${item.description }</blockquote>
+				<div class="carousel-inner">
+					<dc:forEach var="pict" items="${item.pictureList}" varStatus="loop"> 
+						<%-- replace 3 div with class item with one dynamic div  --%>
+						 <c:choose>
+								<c:when test="${loop.index==0}">
+									<div class="item active">
+										<img src="${pict.path}" alt="slide 1"
+											style="width: 100%;">
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="item">
+										<img src="${pict.path}" alt="slide 1"
+											style="width: 100%;">
+									</div>
+								</c:otherwise>
+						 </c:choose>
+					</dc:forEach> 
+					<a href="#">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+							<!-- Left and right controls -->
+							 <a class="left carousel-control" href="#myCarouse${item.itemId}"
+								data-slide="prev"> <span
+								class="glyphicon glyphicon-chevron-left"></span> <span
+								class="sr-only">Previous</span>
+							</a> <a class="right carousel-control" href="#myCarouse${item.itemId }"
+								data-slide="next"> <span
+								class="glyphicon glyphicon-chevron-right"></span> <span
+								class="sr-only">Next</span>
+							</a> 
+						</div>
+					</a>
+				</div>
+				<div>
+					<div><strong>Product Name: </strong>${item.itemName }</div>
+					<div><strong>ProductDesctiption: </strong></div>
+					<strong>${item.createdAt}</strong>
+					<blockquote>${item.description }</blockquote>
+				</div>
+				<div  class="row">
+					<div class="col-md-6">
+						<a href="#" class="btn btn-info btn-sm" style="width: 100%"> <span
+							class="glyphicon glyphicon-star"></span> Show Interest
+						</a> 
+					</div>
+					<div class="col-md-6">
+						<a  href="" target="_blank" onclick="" class="btn btn-facebook btn-sm">
+						<i class="fa fa-facebook"></i> Share on Facebook
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

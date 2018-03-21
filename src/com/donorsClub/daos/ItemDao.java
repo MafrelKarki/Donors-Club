@@ -256,4 +256,39 @@ public class ItemDao extends Dao implements IDao {
     return item;
   }
 
+  /**
+   * get most interested donation post
+   * 
+   * @param keyWord
+   * @return
+   */
+  public List<Item> getMostInterestedItems(int limit) {
+    
+   
+    String sql = "SELECT items.* ,COUNT(interested.id) as cnt FROM `items`, interested  " + 
+    		"WHERE items.item_id = interested.item_id " + 
+    		"GROUP BY items.item_id " + 
+    		"ORDER BY cnt  LIMIT "+limit;
+    
+		    List<Item> item = new ArrayList<>();
+		    try {
+		      PreparedStatement statement = this.getConnection().prepareStatement(sql);
+		      ResultSet rs = statement.executeQuery();
+		
+		      while (rs.next()) {
+		        item.add(new ItemDaoRowMapper().mapRow(rs));
+		      }
+		    } catch (SQLException e) {
+		      e.printStackTrace();
+		    } finally {
+		      try {
+		        this.getConnection().close();
+		      } catch (Exception e) {
+		        e.printStackTrace();
+		      }
+		    }
+		    return item;
+  }
+
+  
 }

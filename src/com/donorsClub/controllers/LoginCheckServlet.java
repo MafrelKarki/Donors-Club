@@ -50,7 +50,8 @@ public class LoginCheckServlet extends HttpServlet {
 		}else {
 			request.getSession().setAttribute("user", user);
 			request.setAttribute("user", user);
-			request.getRequestDispatcher("/WEB-INF/views/homepage.jsp").forward(request, response);
+			response.sendRedirect("./home");
+//			request.getRequestDispatcher("/WEB-INF/views/homepage.jsp").forward(request, response);
 		}
 		
 	}

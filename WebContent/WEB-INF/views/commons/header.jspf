@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <%@ taglib prefix="dc" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="ct" uri="/WEB-INF/customTag.tld" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

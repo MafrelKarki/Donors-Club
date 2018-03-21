@@ -37,8 +37,11 @@ public class SearchPostServlet extends HttpServlet {
 		}
 		SearchPostService sps = new SearchPostService();
 		List<Item> itms = sps.searchPost(keyWord);
+		int limit = 5;
+		List<Item> mostInterestedItems  =sps.getMostInterestedItem(limit);
 		
 		request.setAttribute("items", itms); 
+		request.setAttribute("mostInterestedItems", mostInterestedItems); 
 		request.getRequestDispatcher("/WEB-INF/views/homepage.jsp").forward(request, response);
 	}
 

@@ -178,8 +178,7 @@ public class InterestDao extends Dao implements IDao {
         try {
             PreparedStatement statement = this.getConnection().prepareStatement(sql);
             statement.setLong(1, user);
-            
-            ResultSet rs = statement.executeQuery(sql);
+            ResultSet rs = statement.executeQuery();
             while(rs.next()) {
                 interests.add(new InterestDaoRowMapper().mapRow(rs));
             }
@@ -212,6 +211,30 @@ public class InterestDao extends Dao implements IDao {
     public List<Interest> getItemInterests (long ItemId) {
         return findAllbyProperty("item_id" ,ItemId );
     } 
+    
+    public Interest getItemInterestByItemIdAndUserId (long itemId, long userId) {
+      String sql = String.format("SELECT * FROM %s where item_id = ? and user_id = ? ",this.DB_TABLE);        
+      Interest interest = null;
+      try {
+          PreparedStatement statement = this.getConnection().prepareStatement(sql);
+          statement.setLong(1, itemId);
+          statement.setLong(2, userId);
+          System.out.println("Sql-> "+statement);
+          ResultSet rs = statement.executeQuery();
+          if(!rs.next()) return null;
+          interest = new InterestDaoRowMapper().mapRow(rs);
+      } catch (SQLException e) {
+          e.printStackTrace();
+      }finally{
+        try{
+            this.getConnection().close();
+        }catch(Exception e){
+          e.printStackTrace();
+        }
+      }
+      return interest;
+  } 
+    
     
     
 }

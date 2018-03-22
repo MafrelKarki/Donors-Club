@@ -2,79 +2,149 @@ package com.donorsClub.models;
 
 import java.util.Date;
 
-public class Interest extends Model{
+/**
+ * @author Mafrel
+ *
+ */
+public class Interest extends Model {
 
-	//Fields
-	private long id;
-	private int userId;
-	private int itemId;
-	private short seen;
-	private Date createdAt;
-	private Date updatedAt;
-	
-	private Item item;
-	
-	public Interest() {
-		this.item = new Item();
-	}
-	public Interest(Item item) {
-		this.item = item;
-	}
+  // Fields
+  private long id;
+  private int userId;
+  private int itemId;
+  private short seen;
+  private Date createdAt;
+  private Date updatedAt;
 
-	public void setId(long id){
-		this.id = id;
-	}
+  private Item item;
 
-	public void setUserId(int userId){
-		this.userId = userId;
-	}
+  public Interest() {
+    this.item = new Item();
+  }
 
-	public void setItemId(int itemId){
-		this.itemId = itemId;
-	}
+  public Interest(Item item) {
+    this.item = item;
+  }
 
-	public void setSeen(short seen){
-		this.seen = seen;
-	}
+  public void setId(long id) {
+    this.id = id;
+  }
 
-	public void setCreatedAt(Date createdAt){
-		this.createdAt = createdAt;
-	}
+  public void setUserId(int userId) {
+    this.userId = userId;
+  }
 
-	public void setUpdatedAt(Date updatedAt){
-		this.updatedAt = updatedAt;
-	}
+  public void setItemId(int itemId) {
+    this.itemId = itemId;
+  }
 
-	public long getId(){
-		return this.id;
-	}
+  public void setSeen(short seen) {
+    this.seen = seen;
+  }
 
-	public int getUserId(){
-		return this.userId;
-	}
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
 
-	public int getItemId(){
-		return this.itemId;
-	}
+  public void setUpdatedAt(Date updatedAt) {
+    this.updatedAt = updatedAt;
+  }
 
-	public short getSeen(){
-		return this.seen;
-	}
+  public long getId() {
+    return this.id;
+  }
 
-	public Date getCreatedAt(){
-		return this.createdAt;
-	}
+  public int getUserId() {
+    return this.userId;
+  }
 
-	public Date getUpdatedAt(){
-		return this.updatedAt;
-	}
+  public int getItemId() {
+    return this.itemId;
+  }
 
-	public Item getItem() {
-		return item;
-	}
+  public short getSeen() {
+    return this.seen;
+  }
 
-	public void setItem(Item item) {
-		this.item = item;
-	}
+  public Date getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public Date getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public Item getItem() {
+    return item;
+  }
+
+  public void setItem(Item item) {
+    this.item = item;
+  }
+  
+  
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
+    result = prime * result + (int) (id ^ (id >>> 32));
+    result = prime * result + ((item == null) ? 0 : item.hashCode());
+    result = prime * result + itemId;
+    result = prime * result + seen;
+    result = prime * result + ((updatedAt == null) ? 0 : updatedAt.hashCode());
+    result = prime * result + userId;
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null)
+      return false;
+    
+    if (this.getClass() != obj.getClass())
+        return false;
+    
+    Interest other = (Interest) obj;
+    if (createdAt == null) {
+      if (other.createdAt != null)
+        return false;
+    } else if (!createdAt.equals(other.createdAt))
+      return false;
+    
+    if (id != other.id)
+      return false;
+    if (item == null) {
+      if (other.item != null)
+        return false;
+    } else if (!item.equals(other.item))
+      return false;
+    
+    if (itemId != other.itemId)
+      return false;
+    
+    if (seen != other.seen)
+      return false;
+    
+    if (updatedAt == null) {
+      if (other.updatedAt != null)
+        return false;
+    } else if (!updatedAt.equals(other.updatedAt))
+      return false;
+    
+    if (userId != other.userId)
+      return false;
+    
+    return true;
+  }
+
+  @Override
+  public String toString() {
+    return "Interest [id=" + id + ", userId=" + userId + ", itemId=" + itemId + ", seen=" + seen
+        + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", item=" + item + "]";
+  }
+
+
 
 }

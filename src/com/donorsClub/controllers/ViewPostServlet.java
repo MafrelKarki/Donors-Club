@@ -38,6 +38,7 @@ public class ViewPostServlet extends HttpServlet {
 			request.setAttribute("user", itf.getUser());
 			request.setAttribute("interests", itf.getInterest());
 			request.getRequestDispatcher("/WEB-INF/views/item_description.jsp").forward(request, response);
+			
 		}else {
 			response.sendRedirect("./home");
 		}

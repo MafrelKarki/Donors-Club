@@ -29,6 +29,7 @@ $(document).ready(function(){
 						
 						$("<br>").appendTo('#error_message');
 //						alert(element);
+						
 					})
 //					$('#error_message').append(response.response[0]);
 				}

@@ -1,6 +1,7 @@
 $(document).ready(function(){
-	$('.showInterest').click(function(){
-		var postId = attr("data-postId");
+	$('.showInterest').click(function(evt){
+		var postId = $(this).attr("data-postId");
+		evt.preventDefault();
 		
 		$.ajax({
 			"url": "./ShowInterestServlet.do",
@@ -10,7 +11,10 @@ $(document).ready(function(){
 			}, 
 			
 			"success": function(response){
-				console.log(response);
+				if(response.response == true){
+					$("a[data-postId = 'postId']").addClass("btn-danger");
+					window.location.reload();
+				}
 			},
 			
 			"error": function(response){
@@ -18,4 +22,5 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
 });

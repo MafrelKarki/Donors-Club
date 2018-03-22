@@ -65,12 +65,9 @@ public class ProfileServlet extends HttpServlet {
 	       user.setAddress(address);
 	       user.setPhoneNumber(phoneNumber);
 	       user.setUpdatedAt(new Date());
-	       
-//	       System.out.println(errors);
-//	       System.out.println(errors.size());
     	   UserDao uDao = new UserDao();
+    	   
     	   boolean updateStatus = uDao.update(user);
-//    	   user = (User)new UserDao().findById(user.getUserId());
     	   res.put("response", updateStatus);
 	   }else{
 	       res.put("response", errors);

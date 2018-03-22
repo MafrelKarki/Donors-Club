@@ -1,4 +1,5 @@
 <%@ include file="./commons/header.jspf" %>
+<script src="resources/js/post.js"></script>
 	<div class="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
@@ -52,6 +53,27 @@
 							<td><strong>Item Description</strong></td>
 							<td>${item.description}</td>
 						</tr>
+						<tr class="active">
+							<td><strong>Post At</strong></td>
+							<td>${item.createdAt}</td>
+						</tr>
+						<tr class="active">
+							<td><strong>Posted By</strong></td>
+							<td>${user.fname} ${user.lname}</td>
+						</tr>
+						<tr class="active">
+							<td><strong>Donor's Email</strong></td>
+							<td>${user.email}</td>
+						</tr>
+						<tr class="active">
+							<td><strong>Donor's Contact Number</strong></td>
+							<td>${user.phoneNumber}</td>
+						</tr>
+						<tr class="active">
+							<td><strong>Donor's Contact Number</strong></td>
+							<td>${user.address}</td>
+						</tr>
+						
 					</tbody>
 				</table>
 			</div>
@@ -60,7 +82,7 @@
 				style="width: 95%; margin: auto; margin-bottom: 10px; background-color:gainsboro;">
 				<div class="row">
 					<div class="col-md-6">
-						<a href="#" class="btn btn-info btn-sm" style="width: 100%;">
+						<a href="#" class="btn btn-info btn-sm showInterest" style="width: 100%;" data-postId="${item.itemId}" >
 							<span class="glyphicon glyphicon-star"></span> Show Interest
 						</a>
 					</div>

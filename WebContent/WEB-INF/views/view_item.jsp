@@ -33,8 +33,8 @@
 	${item.getItemName() }
 	</td>
 	<td>
-${item.getItemCategoryList()}
-<%-- 	${item.getItemCategoryList().get(0).getCategory().getCategoryName() }  --%>
+<%-- ${item.getItemCategoryList()} --%>
+${item.getItemCategoryList().get(0).getCategory().getCategoryName() }
 
 	</td>
 		<td>

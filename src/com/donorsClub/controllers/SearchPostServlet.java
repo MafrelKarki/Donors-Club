@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.donorsClub.models.Item;
+import com.donorsClub.models.User;
 import com.donorsClub.services.SearchPostService;
 
 /**
@@ -40,7 +41,10 @@ public class SearchPostServlet extends HttpServlet {
 		int limit = 5;
 		List<Item> mostInterestedItems  =sps.getMostInterestedItem(limit);
 		
+		User user = (User)request.getSession().getAttribute("user");
 		request.setAttribute("items", itms); 
+//		request.setAttribute("user", user);
+//		System.out.println(user);
 		request.setAttribute("mostInterestedItems", mostInterestedItems); 
 		request.getRequestDispatcher("/WEB-INF/views/homepage.jsp").forward(request, response);
 	}

@@ -70,7 +70,7 @@ public class SignUpServlet extends HttpServlet {
       user.setCreatedAt(new Date());
       user.setUpdatedAt(new Date());
       user.setStatus((short) 1);
-      user.setUserType(1);
+      user.setUserType(0);
       user.setPicture("");
 
       LoginService loginService = new LoginService();

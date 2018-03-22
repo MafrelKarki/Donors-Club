@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.donorsClub.models.Item;
 import com.donorsClub.models.ItemInfo;
 import com.donorsClub.services.ViewPostService;
 
@@ -34,6 +35,8 @@ public class ViewPostServlet extends HttpServlet {
 		if(id!=null) {
 			int itemId = Integer.parseInt(id);
 			ItemInfo itf = vps.getItemInfo(itemId);
+			Item itm=new Item();
+			itm.getPictureList().get(0).getPath();
 			request.setAttribute("item", itf.getItem());
 			request.setAttribute("user", itf.getUser());
 			request.setAttribute("interests", itf.getInterest());

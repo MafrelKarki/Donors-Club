@@ -22,7 +22,7 @@ public class ImageService {
     String resultStr = null;
     try {
       String[] filExt = getFileName(profilePicturePart).split("\\.");
-      String filename = name + "." + filExt[1];
+     // String filename = name + "." + filExt[1];
       String contentType = profilePicturePart.getContentType();
       AWSCredentials credentials = new BasicAWSCredentials("AKIAI2KD64INO6344H4Q",
           "X0/m6czY0pfRQ4HWD8GbMQjnsua+xHm8EWWLHS5O");

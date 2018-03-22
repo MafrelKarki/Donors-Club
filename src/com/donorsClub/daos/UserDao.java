@@ -211,9 +211,11 @@ public class UserDao extends Dao implements IDao {
 		String sql = String.format("SELECT * FROM %s WHERE  email= ? and password =? ", this.DB_TABLE);
 		User user = null;
 		try {
+			System.out.println("7777777777777");
 			PreparedStatement statement = this.getConnection().prepareStatement(sql);
 			statement.setString(1, email);
 			statement.setString(2, password);
+			
 			ResultSet rs = statement.executeQuery();
 			if (!rs.next()) return null;
 			user = new UserDaoRowMapper().mapRow(rs);

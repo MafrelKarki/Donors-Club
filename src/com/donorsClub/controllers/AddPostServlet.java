@@ -1,28 +1,22 @@
 package com.donorsClub.controllers;
 
-import java.io.Console;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.Document;
-
+import javax.servlet.http.Part;
 import com.donorsClub.daos.UserDao;
-import com.donorsClub.models.Category;
 import com.donorsClub.models.Item;
 import com.donorsClub.models.ItemCategory;
 import com.donorsClub.models.Picture;
 import com.donorsClub.models.User;
 import com.donorsClub.services.CategoryService;
+import com.donorsClub.services.ImageService;
 import com.donorsClub.services.ItemService;
 
 @WebServlet("/add_post.do")
@@ -72,11 +66,28 @@ public class AddPostServlet extends HttpServlet {
 		String description = request.getParameter("description");
 		String category_ = request.getParameter("Myselect");
 		long categoryId = (category_ == null || category_.isEmpty()) ? 0 : Long.parseLong(category_);
-		String photo1 = request.getParameter("photo1");
+		Part profilePicturePart1 = request.getPart("photo1");
+		String imageUrl1 = new ImageService().imageUploader("", profilePicturePart1);
+		
 		String photo2 = request.getParameter("photo2");
+		Part profilePicturePart2 = request.getPart("photo2");
+		String imageUrl2 = new ImageService().imageUploader("", profilePicturePart2);
+		
 		String photo3 = request.getParameter("photo3");
+		Part profilePicturePart3 = request.getPart("photo3");
+		String imageUrl3 = new ImageService().imageUploader("", profilePicturePart3);
+		
 		String photo4 = request.getParameter("photo4");
+		Part profilePicturePart4 = request.getPart("photo4");
+		String imageUrl4 = new ImageService().imageUploader("", profilePicturePart4);
+		
 		String photo5 = request.getParameter("photo5");
+		Part profilePicturePart5 = request.getPart("photo5");
+		String imageUrl5 = new ImageService().imageUploader("", profilePicturePart5);
+		
+		
+		
+		
 		String myItmeId = request.getParameter("myId");
 		Item item;
 		if (itemName.isEmpty()) {
@@ -85,23 +96,23 @@ public class AddPostServlet extends HttpServlet {
 			List<Picture> lpic = new ArrayList<>();
 			item.setItemName(itemName);
 			Picture pic = new Picture();
-			pic.setPath(photo1);
+			pic.setPath(imageUrl1);
 			lpic.add(pic);
 
 			pic = new Picture();
-			pic.setPath(photo2);
+			pic.setPath(imageUrl2);
 			lpic.add(pic);
 
 			pic = new Picture();
-			pic.setPath(photo3);
+			pic.setPath(imageUrl3);
 			lpic.add(pic);
 
 			pic = new Picture();
-			pic.setPath(photo4);
+			pic.setPath(imageUrl4);
 			lpic.add(pic);
 
 			pic = new Picture();
-			pic.setPath(photo5);
+			pic.setPath(imageUrl5);
 			lpic.add(pic);
 
 			item.setPictureList(lpic);
@@ -121,7 +132,7 @@ public class AddPostServlet extends HttpServlet {
 			if (myItmeId != null && !myItmeId.isEmpty()) {
 	
 				itmId = Long.parseLong(myItmeId);
-				itemService.InsertUpdateItem(itemName, description, photo1, photo2, photo3, photo4, photo5,
+				itemService.InsertUpdateItem(itemName, description, imageUrl1, imageUrl2, imageUrl3, imageUrl4, imageUrl5,
 						categoryId, user,itmId);
 				user = (User)new UserDao().findById(user.getUserId());
 				
@@ -132,7 +143,7 @@ public class AddPostServlet extends HttpServlet {
 				
 			} else {
 
-				itmId = itemService.InsertUpdateItem(itemName, description, photo1, photo2, photo3, photo4, photo5,
+				itmId = itemService.InsertUpdateItem(itemName, description, imageUrl1, imageUrl2, imageUrl3, imageUrl4, imageUrl5,
 						categoryId, user,0);
 				request.setAttribute("CorrerctMessages", "Done");
 				item = itemService.getItem(itmId);		

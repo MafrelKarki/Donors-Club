@@ -38,10 +38,10 @@ public class ItemService {
 		}
 
 		Picture pic;
-		PictureDao pDao = new PictureDao();
+//		PictureDao pDao = new PictureDao();
 		if (myItemId != 0) {
 			for (int i = 0; i < item.getPictureList().size(); i++) {
-				pDao.delete(item.getPictureList().get(i));
+			  new PictureDao().delete(item.getPictureList().get(i));
 			}
 		}
 		if (!photo1.isEmpty()) {
@@ -50,7 +50,7 @@ public class ItemService {
 			pic.setPath(photo1);
 			pic.setCreatedAt(createdAt);
 			pic.setUpdatedAt(createdAt);
-			pDao.insert(pic);
+			new PictureDao().insert(pic);
 		}
 
 		if (!photo2.isEmpty()) {
@@ -59,7 +59,7 @@ public class ItemService {
 			pic.setPath(photo2);
 			pic.setCreatedAt(createdAt);
 			pic.setUpdatedAt(createdAt);
-			pDao.insert(pic);
+			new PictureDao().insert(pic);
 		}
 		if (!photo3.isEmpty()) {
 			pic = new Picture();
@@ -67,7 +67,7 @@ public class ItemService {
 			pic.setPath(photo3);
 			pic.setCreatedAt(createdAt);
 			pic.setUpdatedAt(createdAt);
-			pDao.insert(pic);
+			new PictureDao().insert(pic);
 		}
 		if (!photo4.isEmpty()) {
 			pic = new Picture();
@@ -75,7 +75,7 @@ public class ItemService {
 			pic.setPath(photo4);
 			pic.setCreatedAt(createdAt);
 			pic.setUpdatedAt(createdAt);
-			pDao.insert(pic);
+			new PictureDao().insert(pic);
 		}
 		if (!photo5.isEmpty()) {
 			pic = new Picture();
@@ -83,7 +83,7 @@ public class ItemService {
 			pic.setPath(photo5);
 			pic.setCreatedAt(createdAt);
 			pic.setUpdatedAt(createdAt);
-			pDao.insert(pic);
+			new PictureDao().insert(pic);
 		}
 
 		if (myItemId != 0) {

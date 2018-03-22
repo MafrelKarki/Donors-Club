@@ -5,11 +5,8 @@
 
 
 
-	<form class="well form-horizontal" action="./add_post.do" method="post"
-		id="contact_form" >
+	<form class="well form-horizontal" action="./add_post.do" method="post"  enctype="multipart/form-data" id="contact_form" >
 		<fieldset>
-
-			<!-- Form Name -->
 
 
 			<c:if test="${signupErrorMessages!=null}">
@@ -80,24 +77,13 @@
 					</div>
 				</div>
 			</div>
-			<% System.out.println("99999"); %>
-			<!-- <div class="form-group">
-				<label class="col-md-4 control-label">Selected</label>
-				<div class="col-md-4 inputGroupContainer">
-					<div class="input-group">
-						<span class="input-group-addon"><i
-							class=" glyphicon glyphicon-blackboard"></i></span>
-						<textarea readonly="true" class="form-control" name="mySelected"></textarea>
-					</div>
-				</div>
-			</div> -->
 			<c:forEach var="i" begin="0"  end="4">
 			<div class="form-group">
 				<label class="col-md-4 control-label">photo</label>
 				<div class="col-md-4 inputGroupContainer">
 	
-					<input  name="photo${i+1 }" accept="image/*" type="file"
-					 value='${item==null?"":item.getPictureList().size()>i?item.getPictureList().get(i).getPath():"" }'>			
+					<input  name="photo${i+1}" accept="image/*" type="file"
+					 value=''>			
 				</div>
 			</div>
 			</c:forEach>

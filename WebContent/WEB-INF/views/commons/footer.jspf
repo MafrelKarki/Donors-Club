@@ -11,5 +11,8 @@
 			  </div>
 		</nav>
 		</footer>
+		<script src="resources/js/user_profile.js"></script>
+<script src="resources/js/post.js"></script>
+		
 	</body>
 </html>

@@ -1,6 +1,4 @@
 <!-- Mafrel's code 3/19/2018 -->
-<script src="resources/js/user_profile.js"></script>
-<script src="resources/js/post.js"></script>
 
 <dc:forEach var="item" items="${items}" varStatus="loopp">
 	<a href="./post?id=${item.getItemId()}">

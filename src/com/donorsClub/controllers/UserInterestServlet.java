@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.donorsClub.daos.UserDao;
 import com.donorsClub.models.User;
 
 /**
@@ -31,6 +32,8 @@ public class UserInterestServlet extends HttpServlet {
 		
 		User user =(User) request.getSession().getAttribute("user");
 		request.setAttribute("user", user); 
+		 User userToBeResessioned = (User) new UserDao().findById(user.getUserId());
+	      request.getSession().setAttribute("user", userToBeResessioned);
 		request.getRequestDispatcher("/WEB-INF/views/user_interest.jsp").forward(request, response);
 	}
 

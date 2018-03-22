@@ -1,5 +1,6 @@
 <!-- Mafrel's code 3/19/2018 -->
 <script src="resources/js/user_profile.js"></script>
+<script src="resources/js/post.js"></script>
 
 <dc:forEach var="item" items="${items}" varStatus="loop">
 	<a href="./post?id=${item.itemId}">
@@ -64,7 +65,7 @@
 				style="width: 95%; margin: auto; margin-bottom: 10px; background-color:gainsboro;">
 				<div class="row">
 					<div class="col-md-6">
-						<a href="#" class="btn btn-info btn-sm" style="width: 100%;">
+						<a href="#" class="btn btn-info btn-sm showInterest" style="width: 100%;" data-postId="${item.itemId}">
 							<span class="glyphicon glyphicon-star"></span> Show Interest
 						</a>
 					</div>

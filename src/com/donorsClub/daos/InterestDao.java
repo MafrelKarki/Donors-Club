@@ -16,7 +16,7 @@ import com.donorsClub.models.Model;
  *
  */
 public class InterestDao extends Dao implements IDao {
-    private final String DB_TABLE ="Interest";
+    private final String DB_TABLE ="interested";
    
     class InterestDaoRowMapper implements RowMapper<Interest>{
         
@@ -36,7 +36,6 @@ public class InterestDao extends Dao implements IDao {
             return interest;
         }
     }
-    
     
     @Override
     public long insert(Model model) {

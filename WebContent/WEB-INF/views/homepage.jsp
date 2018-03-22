@@ -1,3 +1,4 @@
+<%-- Mafrel's code 3/19/2018--%>
 <%@ include file="./commons/header.jspf" %>
 	<div class= "container">
 		<c:choose>

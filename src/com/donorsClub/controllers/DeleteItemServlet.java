@@ -11,8 +11,12 @@ import com.donorsClub.daos.UserDao;
 import com.donorsClub.models.User;
 import com.donorsClub.services.ViewItemService;
 
+
 /**
- * Servlet implementation class DeleteItem
+ * 
+ * 
+ * @author Sherif
+ *
  */
 @WebServlet("/DeleteItem.do")
 public class DeleteItemServlet extends HttpServlet {
@@ -38,7 +42,8 @@ public class DeleteItemServlet extends HttpServlet {
 		
 		viewitmsrvce.DeleteItem(ItemId);
 		
-		 user = (User)new UserDao().findById(user.getUserId());		
+		user = (User) new UserDao().findById(user.getUserId());
+        request.getSession().setAttribute("user",user);	
 		request.setAttribute("user", user);
 
 		request.getRequestDispatcher("/WEB-INF/views/view_item.jsp").forward(request, response);

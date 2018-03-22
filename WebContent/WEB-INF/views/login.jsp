@@ -1,6 +1,7 @@
+<%-- Mafrel's code 3/20/2018--%>
 <%@ include file="./commons/header.jspf"%>
 <div class="container">
-	<!--  Codes by Mafrel -->
+	<!--  Codes by "Developer sherif" -->
 
 
 	<div class="modal-dialog form-dark" role="document">

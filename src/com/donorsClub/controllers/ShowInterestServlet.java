@@ -15,7 +15,10 @@ import com.donorsClub.daos.UserDao;
 import com.donorsClub.models.Interest;
 import com.donorsClub.models.Item;
 import com.donorsClub.models.User;
-
+/**
+ * @since 3/20/2018
+ * @author Mafrel
+ */
 @WebServlet("/ShowInterestServlet.do")
 public class ShowInterestServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;

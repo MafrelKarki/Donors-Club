@@ -13,6 +13,10 @@ import com.donorsClub.daos.UserDao;
 import com.donorsClub.models.User;
 import com.donorsClub.services.ImageService;
 
+/**
+ * @since 3/20/2018
+ * @author Mafrel
+ */
 @WebServlet("/UserProfileImageServlet.do")
 @MultipartConfig
 public class UserProfileImageServlet extends HttpServlet {

@@ -11,6 +11,12 @@ import com.donorsClub.models.ItemCategory;
 import com.donorsClub.models.Picture;
 import com.donorsClub.models.User;
 
+/**
+ * 
+ * 
+ * @author Sherif
+ *
+ */
 public class ItemService {
 
 	public long InsertUpdateItem(String itemName, String description, String photo1, String photo2, String photo3,

@@ -1,8 +1,8 @@
 <%@ include file="./commons/header.jspf" %>
 	<div class= "container">
 		<!--  Codes by "Developer sherif" -->
-		
-		<form class="well form-horizontal" action="./ChangePassword.do" method="post"
+	
+		<form class="well form-horizontal passwordChangeForm" action="./ChangePassword.do" method="post"
 		id="contact_form">
 		<fieldset>
 		
@@ -29,7 +29,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input name="old_password"
-							placeholder="old Password" class="form-control" type="password" value="" />
+							placeholder="Old Password" class="form-control" type="password" value="" />
 					</div>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 					</div>
 				</div>
 			</div>
-			<input type="submit"  value="Update" > 
+			<input type="submit" class="btn btn-info" value="Update" id="saveUpdatedPassworBtn"> 
 		</fieldset>
 		</form>
 		

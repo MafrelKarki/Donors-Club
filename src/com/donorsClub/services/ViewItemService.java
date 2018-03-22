@@ -7,6 +7,12 @@ import com.donorsClub.daos.ItemDao;
 import com.donorsClub.models.Item;
 import com.donorsClub.models.User;
 
+/**
+ * 
+ * 
+ * @author Sherif
+ *
+ */
 public class ViewItemService {
 	
 	public List<Item> getAllItem(User user) {

@@ -15,7 +15,11 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.util.IOUtils;
-
+/**
+ * @since 3/21/2018
+ * @author Mafrel
+ * uploading image into aws s3 bucket
+ */
 public class ImageService {
 
   public String imageUploader(String name, Part profilePicturePart) throws IOException {

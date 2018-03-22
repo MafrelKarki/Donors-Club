@@ -276,7 +276,9 @@ public class ItemDao extends Dao implements IDao {
 		      ResultSet rs = statement.executeQuery();
 		
 		      while (rs.next()) {
-		        item.add(new ItemDaoRowMapper().mapRow(rs));
+		    	  Item itm = new ItemDaoRowMapper().mapRow(rs);
+		    	  itm.setInterestCount(rs.getInt("cnt"));  
+		    	  item.add(itm);
 		      }
 		    } catch (SQLException e) {
 		      e.printStackTrace();

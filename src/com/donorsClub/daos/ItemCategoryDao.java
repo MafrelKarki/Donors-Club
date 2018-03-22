@@ -39,6 +39,7 @@ public class ItemCategoryDao extends Dao implements IDao {
       itemCategory.setUpdatedAt(rs.getTimestamp("updated_at"));
 
       long categ_id = rs.getLong("category_id");
+      itemCategory.setCategoryId(categ_id);
       itemCategory.setCategory((Category) new CategoryDao().findById(categ_id));
 
       return itemCategory;

@@ -141,7 +141,7 @@ public class ItemDao extends Dao implements IDao {
 
   @Override
   public Model findById(long Id) {
-    String sql = String.format("SELECT * FROM %s WHERE id = ?", this.DB_TABLE);
+    String sql = String.format("SELECT * FROM %s WHERE item_id = ?", this.DB_TABLE);
     Item item = null;
     try {
       PreparedStatement statement = this.getConnection().prepareStatement(sql);

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.donorsClub.models.ItemInfo;
+import com.donorsClub.services.ViewPostService;
+
 /**
  * Servlet implementation class ViewPostServlet
  */
@@ -26,15 +29,24 @@ public class ViewPostServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ViewPostService vps = new ViewPostService();
+		String id = request.getParameter("id");
+		if(id!=null) {
+			int itemId = Integer.parseInt(id);
+			ItemInfo itf = vps.getItemInfo(itemId);
+			request.setAttribute("item", itf.getItem());
+			request.setAttribute("user", itf.getUser());
+			request.setAttribute("interests", itf.getInterest());
+			request.getRequestDispatcher("/WEB-INF/views/view_post.jsp").forward(request, response);
+		}else {
+			response.sendRedirect("./home");
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

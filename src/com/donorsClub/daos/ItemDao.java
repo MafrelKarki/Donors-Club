@@ -93,7 +93,7 @@ public class ItemDao extends Dao implements IDao {
     Item item = (Item) model;
     String sql = String.format(
         "UPDATE %s SET user_id = ?, item_name = ?, description = ?, status =?, updated_at=? "
-            + "WHERE id=?",
+            + "WHERE item_id=?",
         this.DB_TABLE);
     try {
       PreparedStatement statement = this.getConnection().prepareStatement(sql);
@@ -121,7 +121,7 @@ public class ItemDao extends Dao implements IDao {
   @Override
   public boolean delete(Model model) {
     Item item = (Item) model;
-    String sql = String.format("DELETE FROM %s WHERE id=?", this.DB_TABLE);
+    String sql = String.format("DELETE FROM %s WHERE item_id=?", this.DB_TABLE);
     try {
       PreparedStatement statement = this.getConnection().prepareStatement(sql);
       statement.setLong(1, item.getItemId());

@@ -15,6 +15,8 @@ public class Item extends Model{
 	private Date createdAt;
 	private Date updatedAt;
 	
+	private int interestCount;
+	
 	private List<Picture> pictureList;
 	private List<ItemCategory> itemCategoryList;
 	
@@ -101,6 +103,14 @@ public class Item extends Model{
 
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+	
+	public int getInterestCount() {
+		return interestCount;
+	}
+	
+	public void setInterestCount(int interestCount) {
+		this.interestCount = interestCount;
 	}
 
 	@Override

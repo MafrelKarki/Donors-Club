@@ -16,11 +16,11 @@
 			enctype="multipart/form-data" id="contact_form">
 
 			<div class="btn-group mr-3"  role="group" aria-label="First group">
-				<label class="btn btn-seconday" for="my-file-selector">
-				    <input id="my-file-selector" type="file" style="display:none;" name="userImage" accept="image/*"/>
+				<label class="btn btn btn-info" for="my-file-selector" id="userFileBrowseButton">
+				    <input id="my-file-selector" type="file" style="display:none; width: 100%; border-radius: 12px;" name="userImage" accept="image/*"/>
 				    Browse
 				</label>
-			    <input type="submit" class="btn btn-danger col-sm"/>
+			    <input type="submit" class="btn btn-danger col-sm" style = "width: 100%; border-radius: 12px;"/>
 			</div>
 			
 		</form>
@@ -32,14 +32,13 @@
 	<div class="profile-userbuttons">
 
 		<a class="btn btn-success btn-lg" id="updateUserProfile_btn"
-			data-toggle="modal" data-target="#exampleModalLong">Update Your
-			Profile</a>
+			data-toggle="modal" data-target="#exampleModalLong">Update Profile</a>
 
 
 	</div>
 	<div class="profile-usermenu">
-		<ul class="nav">
-			<li class="active"><a href="./ViewItem.do"> <i
+		<ul class="nav" id="userOptions">
+			<li class="active" ><a href="./ViewItem.do"> <i
 					class="glyphicon glyphicon-gift"></i> Your Posts:
 					${user.itemList.size()}
 			</a></li>

@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title>DonorsClub</title>
+<title>Donors Club 2018</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
@@ -23,6 +23,7 @@
 	<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet" />
 	<link href="resources/css/app.css" rel="stylesheet" />
+	<link rel="shortcut icon" type="image/x-icon" href="resources/images/a.png" />
 	
 </head>
 <body>
@@ -37,7 +38,9 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="./home">DonorsClub</a>
+			<a class="navbar-brand" href="./home">
+			<img src="resources/images/a.png" alt="Donors Club Logo" height = 30px;>
+			</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,7 +50,7 @@
 				<div class="form-group">
 					<input type="text" name="q" class="form-control" placeholder="Search Donated Post ...">
 				</div>
-				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+				<button type="submit" class="btn btn-default" id="searchIcon"><i class="glyphicon glyphicon-search"></i></button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 			<c:choose>

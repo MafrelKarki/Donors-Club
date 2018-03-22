@@ -2,7 +2,8 @@
 	margin: 0;
 	padding: 0;
 }
-.profile-sidebar{
+
+.profile-sidebar {
 	position: fixed;
 }
 
@@ -21,9 +22,23 @@
 	margin-top: 20px;
 }
 
-.profile-userbuttons>a {
-	width: 90%;
-	margin-left: 8px;
+#userOptions>li>a{
+	text-align: center;
+}
+
+#userFileBrowseButton{
+	width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-userbuttons{
+	width: 75%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .profile-sidebar {
@@ -41,16 +56,19 @@
 }
 
 /* @media (min-width: 992px) */
-.custom-input-group{
-	width : 320px;
+.custom-input-group {
+	width: 320px;
 }
 
-#error_message{
+#error_message {
 	display: none;
 }
 
-.panel-default{
-	
+#loginForm {
+	height: 300px;
+	line-height: 1.8;
 }
 
-           
+#searchIcon{
+    line-height: 0.1;
+}

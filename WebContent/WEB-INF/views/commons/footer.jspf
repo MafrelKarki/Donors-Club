@@ -4,7 +4,7 @@
 			  <div class="container-fluid">
 			    <div class="navbar-header">
 			      <a class="navbar-brand" href="./home">
-			      <p><ct:flogo align="center" text="DonorsClub"/></p>
+			      <p>&copy;Copyright <ct:flogo align="center" text=" 2018 DonorsClub.com"/></p>
 			       <!--  <img alt="Brand" src="..."> -->
 			      </a>
 			    </div>

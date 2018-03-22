@@ -49,8 +49,6 @@ public class ProfileServlet extends HttpServlet {
 	  String phoneNumber = request.getParameter("phoneNumber");
 //	  String 
 	  
-	  
-	   
 	   
 	   SignUpService signUpService = new SignUpService();
 	   List<String> errors = signUpService.validateSignUpForm(fname, lname, address, phoneNumber, email, "MyDummyPassword", "MyDummyPassword");

@@ -1,8 +1,5 @@
-<!-- Mafrel's code 3/19/2018 -->
-<script src="resources/js/user_profile.js"></script>
-
-<dc:forEach var="item" items="${items}" varStatus="loop">
-	<a href="./ItemDescriptionServlet.do">
+<%@ include file="./commons/header.jspf" %>
+	<div>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -39,7 +36,6 @@
 				class="sr-only">Next</span>
 			</a>
 		</div>
-		</a>
 
 
 		<div class="panel panel-default" style="background-color:#efe5e5;">
@@ -78,7 +74,4 @@
 				</div>
 			</div>
 		</div>
-
-	<br>
-	<br>
-</dc:forEach>
+<%@ include file="./commons/footer.jspf" %>

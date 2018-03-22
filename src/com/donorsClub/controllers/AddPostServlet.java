@@ -151,7 +151,7 @@ public class AddPostServlet extends HttpServlet {
 				itemService.InsertUpdateItem(itemName, description, imageUrl1, imageUrl2, imageUrl3, imageUrl4,
 						imageUrl5, categoryId, user, itmId);
 				user = (User) new UserDao().findById(user.getUserId());
-
+				request.getSession().setAttribute("user",user);
 				request.setAttribute("user", user);
 
 				request.getRequestDispatcher("/WEB-INF/views/view_item.jsp").forward(request, response);
@@ -165,6 +165,9 @@ public class AddPostServlet extends HttpServlet {
 				request.setAttribute("Item", item);
 				CategoryService cts = new CategoryService();
 				request.setAttribute("Categories", cts.GetAllCategory());
+				
+				user = (User) new UserDao().findById(user.getUserId());
+				request.getSession().setAttribute("user",user);
 				request.getRequestDispatcher("/WEB-INF/views/add_post.jsp").forward(request, response);
 			}
 

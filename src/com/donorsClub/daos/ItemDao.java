@@ -268,7 +268,7 @@ public class ItemDao extends Dao implements IDao {
     String sql = "SELECT items.* ,COUNT(interested.id) as cnt FROM `items`, interested  " + 
     		"WHERE items.item_id = interested.item_id  AND status='0' " + 
     		"GROUP BY items.item_id " + 
-    		"ORDER BY cnt  LIMIT "+limit;
+    		"ORDER BY cnt desc LIMIT "+limit;
     
 		    List<Item> item = new ArrayList<>();
 		    try {

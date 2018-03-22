@@ -24,7 +24,7 @@
 					</c:otherwise>
 				</c:choose>
 				<img src="${itm.getPath()}" alt="Los Angeles"
-							style="width: 100%;">
+							style="width: 100%;height: 434px">
 					</div>
 
 				</c:forEach>

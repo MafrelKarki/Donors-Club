@@ -190,7 +190,7 @@ public class ItemDao extends Dao implements IDao {
    * @return
    */
   public List<Item> getUserItem(long userId) {
-    String sql = String.format("SELECT * FROM %s WHERE user_id = ?", this.DB_TABLE);
+    String sql = String.format("SELECT * FROM %s WHERE user_id = ? AND status='0' ", this.DB_TABLE);
     List<Item> item = new ArrayList<>();
     try {
       PreparedStatement statement = this.getConnection().prepareStatement(sql);

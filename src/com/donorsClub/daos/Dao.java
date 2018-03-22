@@ -22,7 +22,7 @@ public abstract class Dao {
 	private String DBPort = "3306";
 	private String DBName = "donationdb";
 	private String DBUsername = "root";
-	private String DBPassword = "root";
+	private String DBPassword = "";
 	
 	private Connection connection;
 	private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";

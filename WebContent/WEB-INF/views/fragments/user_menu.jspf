@@ -20,7 +20,7 @@
 				    <input id="my-file-selector" type="file" style="display:none;" name="userImage" accept="image/*"/>
 				    Browse
 				</label>
-			    <input type="submit" class="btn btn-danger col-sm"/>
+			    <input type="submit" class="btn btn-danger col-sm" value="Submit"/>
 			</div>
 			
 		</form>
@@ -50,11 +50,14 @@
 			<li><a href="./add_post.do"> <i
 					class="glyphicon glyphicon-plus"></i> Add Post
 			</a></li>
+			<li></li>
+			<li></li>
 		</ul>
 	</div>
 </div>
+<br/>
+<br/><br/>
 
 <%@ include file="./profile.jspf"%>
-
 
 

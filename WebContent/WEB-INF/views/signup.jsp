@@ -1,5 +1,5 @@
 <%@ include file="./commons/header.jspf"%>
-<div class="container">
+<div class="container" style="margin: 2% auto;width: 60%">
 	<form class="well form-horizontal" action="./signup" method="post"
 		id="contact_form">
 		<fieldset>

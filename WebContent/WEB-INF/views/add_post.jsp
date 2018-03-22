@@ -1,3 +1,4 @@
+<%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
 <%@ include file="./commons/header.jspf"%>
 <div class="container">
 	<!--  Codes by "Developer Sherif" -->
@@ -22,23 +23,27 @@
 
 			<hr />
 			</c:if>
+			<c:if test="${CorrerctMessages!=null }">
+				<div class="alert alert-success">
+				<p>${CorrerctMessages }</p>
+				</div>
+			</c:if>
 			<!-- Text input
 			add_post.do
 			-->
-
 
 			<div class="form-group">
 				<label class="col-md-4 control-label">Item Name</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-modal-window"></i></span> <input
+							class="glyphicon glyphicon-modal-window"></i></span> <input required="required"
 							name="item_name" placeholder="First Name" class="form-control"
-							type="text" value="">
+							type="text" value="${Item.getItemName() }">
 					</div>
 				</div>
 			</div>
-
+		<input type="hidden"  name="myId" value="${myId }">
 			<!-- Text input-->
 
 			<div class="form-group">
@@ -47,7 +52,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class=" glyphicon glyphicon-blackboard"></i></span>
-						<textarea class="form-control" name="description" >${description }</textarea>
+						<textarea class="form-control" name="description" >${Item.getDescription() }</textarea>
 					</div>
 				</div>
 			</div>
@@ -58,17 +63,24 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-modal-window"></i></span>
+							
+							
 							 <select name="Myselect" class="form-control" name="Events">
 
 							<c:forEach var="i" items="${Categories }">
-								<option value="${i.getCategoryId() }">${i.getCategoryName() }</option>
-
+							<c:if test="${i.getCategoryId()==Item.getItemCategoryList().get(0).getCategoryId() }">
+								<option  selected="selected" value="${i.getCategoryId() }">${i.getCategoryName() }</option>
+							</c:if>
+							<c:if test="${i.getCategoryId()!=Item.getItemCategoryList().get(0).getCategoryId() }">
+								<option   value="${i.getCategoryId() }">${i.getCategoryName() }</option>
+							</c:if>
 							</c:forEach>
 
 						</select>
 					</div>
 				</div>
 			</div>
+			<% System.out.println("99999"); %>
 			<!-- <div class="form-group">
 				<label class="col-md-4 control-label">Selected</label>
 				<div class="col-md-4 inputGroupContainer">
@@ -79,41 +91,16 @@
 					</div>
 				</div>
 			</div> -->
+			<c:forEach var="i" begin="0"  end="4">
 			<div class="form-group">
 				<label class="col-md-4 control-label">photo</label>
 				<div class="col-md-4 inputGroupContainer">
-					<input  name="photo1" accept="image/*" type="file" value="${ photo1}">
- 					
+	
+					<input  name="photo${i+1 }" accept="image/*" type="file"
+					 value='${item==null?"":item.getPictureList().size()>i?item.getPictureList().get(i).getPath():"" }'>			
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-md-4 control-label">photo</label>
-				<div class="col-md-4 inputGroupContainer">
-					<input name="photo2" accept="image/*"   type="file" value="${ photo2}">
-
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-4 control-label">photo</label>
-				<div class="col-md-4 inputGroupContainer">
-					<input name="photo3"  accept="image/*"  type="file" value="${ photo3}">
-
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-4 control-label">photo</label>
-				<div class="col-md-4 inputGroupContainer">
-					<input name="photo4"  accept="image/*"  type="file" value="${ photo4}">
-
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-4 control-label">photo</label>
-				<div class="col-md-4 inputGroupContainer">
-					<input name="photo5"  accept="image/*"  type="file"  value="${ photo5}">
-
-				</div>
-			</div>
+			</c:forEach>
 
 			<!-- Text input-->
 

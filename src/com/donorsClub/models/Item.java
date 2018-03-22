@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.donorsClub.daos.InterestDao;
+
 public class Item extends Model{
 
 	//Fields
@@ -113,6 +115,13 @@ public class Item extends Model{
 		this.interestCount = interestCount;
 	}
 
+public List<Interest> getInterests() {
+		
+		return new InterestDao().getItemInterests(getItemId());
+
+	}
+
+	
 	@Override
 	public String toString() {
 		return "Item [itemId=" + itemId + ", userId=" + userId + ", itemName=" + itemName + ", description="

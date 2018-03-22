@@ -21,8 +21,9 @@ public class LoginService {
 	 */
 	public User authorization(String email , String password)
 	{
-		System.out.println("Entring Service method");
+	
 		UserDao ud=new UserDao();
+		System.out.println("Entring Service method");
 		return (User)ud.checkUser(email,hashMd5( password)); 
 	}
 	

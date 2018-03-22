@@ -48,7 +48,7 @@ public class AddPostServlet extends HttpServlet {
 			Item item = itmService.getItem(Long.parseLong(myItmeId));
 			request.setAttribute("myId", myItmeId);
 			request.setAttribute("Item", item);
-	 	}
+		}
 		CategoryService cts = new CategoryService();
 		request.setAttribute("Categories", cts.GetAllCategory());
 		request.getRequestDispatcher("/WEB-INF/views/add_post.jsp").forward(request, response);
@@ -66,28 +66,44 @@ public class AddPostServlet extends HttpServlet {
 		String description = request.getParameter("description");
 		String category_ = request.getParameter("Myselect");
 		long categoryId = (category_ == null || category_.isEmpty()) ? 0 : Long.parseLong(category_);
+		String imageUrl1 = "";
+		String imageUrl2 = "";
+		String imageUrl3 = "";
+		String imageUrl4 = "";
+		String imageUrl5 = "";
+
 		Part profilePicturePart1 = request.getPart("photo1");
-		String imageUrl1 = new ImageService().imageUploader("", profilePicturePart1);
-		
-		String photo2 = request.getParameter("photo2");
+
+		if (profilePicturePart1 .getSize() !=0) {
+
+			imageUrl1 = new ImageService().imageUploader("", profilePicturePart1);
+
+		}
+
 		Part profilePicturePart2 = request.getPart("photo2");
-		String imageUrl2 = new ImageService().imageUploader("", profilePicturePart2);
-		
-		String photo3 = request.getParameter("photo3");
+		if (profilePicturePart2 .getSize() !=0) {
+			System.out.println(profilePicturePart2.getSize());
+			imageUrl2 = new ImageService().imageUploader("", profilePicturePart2);
+		}
 		Part profilePicturePart3 = request.getPart("photo3");
-		String imageUrl3 = new ImageService().imageUploader("", profilePicturePart3);
-		
-		String photo4 = request.getParameter("photo4");
+
+		if (profilePicturePart3 .getSize() !=0) {
+
+			imageUrl3 = new ImageService().imageUploader("", profilePicturePart3);
+		}
+
 		Part profilePicturePart4 = request.getPart("photo4");
-		String imageUrl4 = new ImageService().imageUploader("", profilePicturePart4);
-		
-		String photo5 = request.getParameter("photo5");
+		if (profilePicturePart4 .getSize() !=0) {
+
+			imageUrl4 = new ImageService().imageUploader("", profilePicturePart4);
+		}
+
 		Part profilePicturePart5 = request.getPart("photo5");
-		String imageUrl5 = new ImageService().imageUploader("", profilePicturePart5);
-		
-		
-		
-		
+		if (profilePicturePart5 .getSize() !=0) {
+
+			imageUrl5 = new ImageService().imageUploader("", profilePicturePart5);
+		}
+
 		String myItmeId = request.getParameter("myId");
 		Item item;
 		if (itemName.isEmpty()) {
@@ -127,38 +143,33 @@ public class AddPostServlet extends HttpServlet {
 
 			long itmId;
 			ItemService itemService = new ItemService();
-			User user=(User) request.getSession().getAttribute("user");
-		
+			User user = (User) request.getSession().getAttribute("user");
+
 			if (myItmeId != null && !myItmeId.isEmpty()) {
-	
+
 				itmId = Long.parseLong(myItmeId);
-				itemService.InsertUpdateItem(itemName, description, imageUrl1, imageUrl2, imageUrl3, imageUrl4, imageUrl5,
-						categoryId, user,itmId);
-				user = (User)new UserDao().findById(user.getUserId());
-				
+				itemService.InsertUpdateItem(itemName, description, imageUrl1, imageUrl2, imageUrl3, imageUrl4,
+						imageUrl5, categoryId, user, itmId);
+				user = (User) new UserDao().findById(user.getUserId());
+
 				request.setAttribute("user", user);
-	
+
 				request.getRequestDispatcher("/WEB-INF/views/view_item.jsp").forward(request, response);
-				
-				
+
 			} else {
 
-				itmId = itemService.InsertUpdateItem(itemName, description, imageUrl1, imageUrl2, imageUrl3, imageUrl4, imageUrl5,
-						categoryId, user,0);
+				itmId = itemService.InsertUpdateItem(itemName, description, imageUrl1, imageUrl2, imageUrl3, imageUrl4,
+						imageUrl5, categoryId, user, 0);
 				request.setAttribute("CorrerctMessages", "Done");
-				item = itemService.getItem(itmId);		
+				item = itemService.getItem(itmId);
 				request.setAttribute("Item", item);
 				CategoryService cts = new CategoryService();
 				request.setAttribute("Categories", cts.GetAllCategory());
 				request.getRequestDispatcher("/WEB-INF/views/add_post.jsp").forward(request, response);
 			}
-		
-			
-			
 
 		}
 
-	
 	}
 
 }

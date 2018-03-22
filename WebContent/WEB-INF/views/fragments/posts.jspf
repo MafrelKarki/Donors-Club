@@ -2,7 +2,7 @@
 <script src="resources/js/user_profile.js"></script>
 
 <dc:forEach var="item" items="${items}" varStatus="loop">
-	<a href="./ItemDescriptionServlet.do">
+	<a href="./post?id=${item.itemId}">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">

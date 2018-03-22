@@ -1,5 +1,5 @@
 <%@ include file="./commons/header.jspf" %>
-	<div>
+	<div class="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">

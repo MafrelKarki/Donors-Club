@@ -228,7 +228,7 @@ public class ItemDao extends Dao implements IDao {
      */
     String sql = String.format(
         "SELECT * FROM %s "
-            + "WHERE (item_name like ? OR description like ? ) order by created_at desc",
+            + "WHERE (item_name like ? OR description like ? ) AND status = '0' order by created_at desc",
         this.DB_TABLE);
 
     List<Item> item = new ArrayList<>();
@@ -266,7 +266,7 @@ public class ItemDao extends Dao implements IDao {
     
    
     String sql = "SELECT items.* ,COUNT(interested.id) as cnt FROM `items`, interested  " + 
-    		"WHERE items.item_id = interested.item_id " + 
+    		"WHERE items.item_id = interested.item_id  AND status='0' " + 
     		"GROUP BY items.item_id " + 
     		"ORDER BY cnt  LIMIT "+limit;
     

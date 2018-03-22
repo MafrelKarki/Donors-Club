@@ -24,13 +24,13 @@
 	<div class="profile-usermenu">
 		<ul class="nav">
 			<li class="active">
-				<a href="#"> 
+				<a href="./ViewItem.do"> 
 				<i class="glyphicon glyphicon-gift"></i> 
 				Your Posts: ${user.itemList.size()}
 				</a>
 			</li>
 			<li>
-				<a href="#"> <i class="glyphicon glyphicon-heart"></i>
+				<a href="./user_interest.do"> <i class="glyphicon glyphicon-heart"></i>
 					Your Interests:${user.interestList.size()}
 				</a>
 			</li>

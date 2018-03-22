@@ -173,13 +173,12 @@ public class InterestDao extends Dao implements IDao {
      */
      private List<Interest> findAllbyProperty(String choos ,long user ) {
         String sql = String.format("SELECT * FROM %s where "+choos+" = ?",this.DB_TABLE);        
-        System.out.println("Sql->   "+sql);
         List<Interest> interests = new ArrayList<>();
         try {
             PreparedStatement statement = this.getConnection().prepareStatement(sql);
             statement.setLong(1, user);
             
-            ResultSet rs = statement.executeQuery(sql);
+            ResultSet rs = statement.executeQuery();
             while(rs.next()) {
                 interests.add(new InterestDaoRowMapper().mapRow(rs));
             }

@@ -211,6 +211,11 @@ public class InterestDao extends Dao implements IDao {
         return findAllbyProperty("item_id" ,ItemId );
     } 
     
+    /**
+     * @since 3/21/2018
+     * @author Mafrel
+     * returns interested item by both user id and item id
+     */
     public Interest getItemInterestByItemIdAndUserId (long itemId, long userId) {
       String sql = String.format("SELECT * FROM %s where item_id = ? and user_id = ? ",this.DB_TABLE);        
       Interest interest = null;

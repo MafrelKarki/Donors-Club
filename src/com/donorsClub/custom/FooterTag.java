@@ -4,7 +4,10 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-
+/**
+ * @since 3/19/2018
+ * @author Mafrel
+ */
 public class FooterTag extends SimpleTagSupport{
   private String align;
   private String text;

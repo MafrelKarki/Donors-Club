@@ -11,9 +11,14 @@ import com.donorsClub.daos.UserDao;
 import com.donorsClub.models.User;
 import com.donorsClub.services.ViewItemService;
 
+
 /**
- * Servlet implementation class UpdateItemServelt
+ * 
+ * 
+ * @author Sherif
+ *
  */
+
 @WebServlet("/ViewItem.do")
 public class ViewItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

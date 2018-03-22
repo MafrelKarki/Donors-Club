@@ -19,6 +19,12 @@ import com.donorsClub.services.CategoryService;
 import com.donorsClub.services.ImageService;
 import com.donorsClub.services.ItemService;
 
+/**
+ * 
+ * 
+ * @author Sherif
+ *
+ */
 @WebServlet("/add_post.do")
 @MultipartConfig
 public class AddPostServlet extends HttpServlet {

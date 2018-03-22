@@ -1,3 +1,4 @@
+<%-- Mafrel's code 3/20/2018--%>
 <%@ include file="./commons/header.jspf"%>
 <div class="container" style="margin: 2% auto;width: 60%">
 	<form class="well form-horizontal" action="./signup" method="post"

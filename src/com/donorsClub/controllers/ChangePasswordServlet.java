@@ -13,8 +13,12 @@ import com.donorsClub.models.User;
 import com.donorsClub.services.LoginService;
 
 
+
 /**
- * Servlet implementation class ChangePassword
+ * 
+ * 
+ * @author Sherif
+ *
  */
 @WebServlet("/ChangePassword.do")
 public class ChangePasswordServlet extends HttpServlet {

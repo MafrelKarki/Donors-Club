@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.donorsClub.models.User;
 import com.donorsClub.services.LoginService;
 
+
 /**
- * Servlet implementation class LoginCheck
+ * 
+ * 
+ * @author Sherif
+ *
  */
 @WebServlet("/login")
 public class LoginCheckServlet extends HttpServlet {
